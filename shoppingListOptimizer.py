@@ -6,12 +6,11 @@ quitShop = False
 # NOT DONE: function that sorts items in shoppingList so that items are optimized based on store layout
 def storeSort(shoppingList):
 
-    #iterate through the new shopping list dictionary
-    for key, value in enumerate(shoppingList):
-        print(key)
-
+    #iterate through the new shopping list dictionary, and check if each key is the same (or exists) compared to the masterIndexDict
+    shoppingDict = enumerate(shoppingList)
+    for key, value in shoppingDict:
         match = True
-        if not key in masterIndexDict or enumerate(shoppingList)[key] != masterIndexDict[key]:
+        if not key in masterIndexDict or shoppingDict[key] != masterIndexDict[key]:
             match = False
     return storeSort
 
