@@ -8,11 +8,11 @@ def storeSort(shoppingList):
 
     #iterate through the new shopping list dictionary, and check if each key is the same (or exists) compared to the masterIndexDict
     shoppingDict = enumerate(shoppingList)
-    for key, value in shoppingDict:
+    for key in shoppingDict:
         match = True
         if not key in masterIndexDict or shoppingDict[key] != masterIndexDict[key]:
             match = False
-    return storeSort
+    return 
 
 while quitShop == False:
 
