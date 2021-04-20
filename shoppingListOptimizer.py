@@ -26,4 +26,4 @@ while quitShop == False:
         print("Your shopping list contains: ")
         for items in shoppingList[:-1]:
             print(items)
-        break
+        break 
