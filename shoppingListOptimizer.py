@@ -3,15 +3,18 @@ from MasterIndex import masterIndexDict
 shoppingLst = []
 quitShop = False
 
+
 #define a function to convert shoppingLst into a dictionary
 def lstToDctConvert(lst):
     shoppingDct = {lst[i]: lst[i + 1] for i in range(0, len(lst), 2)}
     return shoppingDct
 
-lstToDctConvert(shoppingLst)
 
 # NOT DONE: function that sorts items in shoppingLst so that items are optimized based on store layout
 def storeSort(shoppingLst):
+
+    #call lstToDctConvert to convert shoppingList into a Dictionary
+    lstToDctConvert(shoppingLst)
 
     #iterate through the new shopping list dictionary, and check if each key is the same (or exists) compared to the masterIndexDict
     for key in shoppingLst:
