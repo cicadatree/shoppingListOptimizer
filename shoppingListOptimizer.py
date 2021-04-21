@@ -1,6 +1,7 @@
-from MasterIndex import masterIndexDict
+from MasterIndex import masterIndexDct
 
 shoppingLst = []
+
 quitShop = False
 
 
@@ -8,6 +9,8 @@ quitShop = False
 def lstToDctConvert(lst):
     shoppingDct = {lst[i]: lst[i + 1] for i in range(0, len(lst), 2)}
     return shoppingDct
+
+print(lstToDctConvert(shoppingLst))
 
 
 # NOT DONE: function that sorts items in shoppingLst so that items are optimized based on store layout
