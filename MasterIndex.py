@@ -1,6 +1,13 @@
-masterIndexDct = {
-'Bread': 0, 
-'Apples': 1, 
-'Cookies': 2,
-'Butter': 3,
+categoryOrderDict = {
+'Breads': 0, 
+'Produce': 1, 
+'Meats': 2,
+'Dairy': 3
+}
+
+itemCategoryDict = {
+    'Apples': 'Produce',
+    'Buns': 'Breads',
+    'Pork Chops': 'Meats',
+    'Milk': 'Dairy'
 }

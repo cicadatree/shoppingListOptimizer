@@ -1,41 +1,39 @@
-from MasterIndex import masterIndexDct
+from MasterIndex import *
 
-shoppingLst = []
+#shoppingLst is currently has placeholder values for testing. It should normally be empty when initialized.
+shoppingLst = ["Buns", "Milk", "Apples", "Pork Chops"]
 
-quitShop = False
+def fitness(item):
+    return categoryOrderDict[itemCategoryDict[item]]
+
+while True:
+
+    #add the user's inputted shopping list item to shoppingLst
+    addItem = input("Please enter your shopping list items here (when finished, enter DONE): ")
+    
+    if addItem != "DONE":
+        shoppingLst.append(addItem)
+    else:
+        print("Your shopping list contains: ")
+        shoppingLst.sort(key=fitness)
+        for items in shoppingLst:
+            print(items)
+        break 
+        
 
 
-#define a function to convert shoppingLst into a dictionary
-def lstToDctConvert(lst):
-    shoppingDct = {lst[i]: lst[i + 1] for i in range(0, len(lst), 2)}
-    return shoppingDct
-
-print(lstToDctConvert(shoppingLst))
-
-
-# NOT DONE: function that sorts items in shoppingLst so that items are optimized based on store layout
+'''# NOT DONE: function that sorts items in shoppingLst so that items are optimized based on store layout
 def storeSort(shoppingLst):
 
-    #call lstToDctConvert to convert shoppingList into a Dictionary
+   #convert shoppingLst into a dictionary using lstToDctConvert()
     lstToDctConvert(shoppingLst)
+
+    #just checking that the dict converter actually works (it does)
+    print(shoppingLst)
 
     #iterate through the new shopping list dictionary, and check if each key is the same (or exists) compared to the masterIndexDict
     for key in shoppingLst:
         match = True
-        if not key in masterIndexDict or shoppingLst[key] != masterIndexDict[key]:
+        if not key in masterIndexDct:
             match = False
-    return 
-
-while quitShop == False:
-
-    #add the user's inputted shopping list item to shoppingLst
-    addItem = input("Please enter your shopping list items here (when finished, enter DONE): ")
-    shoppingLst.append(addItem)
-
-    #break the loop if the user inputs "DONE"
-    if addItem == "DONE":
-        storeSort(shoppingLst)
-        print("Your shopping list contains: ")
-        for items in shoppingLst[:-1]:
-            print(items)
-        break 
+    return '''
