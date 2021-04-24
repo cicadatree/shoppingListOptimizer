@@ -1,9 +1,7 @@
-categoryOrderDict = {
-'Breads': 0, 
-'Produce': 1, 
-'Meats': 2,
-'Dairy': 3
-}
+
+categoryOrderList = ["Breads", "Produce", "Meats", "Dairy"]
+
+categoryOrderDict = {x: i for i, x in enumerate(categoryOrderList)}
 
 itemCategoryDict = {
     'Apples': 'Produce',
