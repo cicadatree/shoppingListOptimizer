@@ -3,6 +3,8 @@ from MasterIndex import *
 #shoppingLst is currently has placeholder values for testing. It should normally be empty when initialized.
 shoppingLst = ["Buns", "Milk", "Apples", "Pork Chops"]
 
+print(shoppingLst)
+
 def fitness(item):
     return categoryOrderDict[itemCategoryDict[item]]
 
