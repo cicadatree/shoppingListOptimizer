@@ -16,8 +16,8 @@ itemCategoryDict = {
     'rye bread': 'gluten products',
     'smoked salmon': 'pseafood',
     'live lobster': 'seafood',
-    'ribeye steak': 'butchered meats'
-    'porkchops': 'butchered meats',
+    'ribeye steak': 'butchered meats',
+    'pork chops': 'butchered meats',
     'packaged bacon': 'processed meats',
     'hotdogs': 'processed meats',
     'eggs': 'dairy',
