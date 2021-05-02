@@ -27,7 +27,9 @@ while True:
             if itemCategory not in categoryOrderDict:
                 print(list(enumerate(categoryOrderList)))
                 
-                categoryOrderList.insert(int(categoryOrder), itemCategory)
+                ### I NEED TO FIGURE OUT WHY THIS COMMENTED-OUT CODE CAUSES AN EXCEPTION. WHAT IS "categoryOrder"?? CODE WORKS WITHOUT THIS LINE. WHAT IS IT FOR?
+                '''categoryOrderList.insert(int(categoryOrder), itemCategory)'''
+
                 categoryOrderDict = {x: i for i, x in enumerate(categoryOrderList)}
                 print(categoryOrderDict)
 
@@ -38,3 +40,43 @@ while True:
         for items in shoppingLst:
             print(items)
         break 
+
+#loop: take user user input to add/edit/remove items in/to the shopping list. [aer = add/edit/remove]
+while True:
+    aerLst = input("To add another item to the shopping list list, enter 1. To modify an item in the list, enter 2. To remove an item in the list, enter 2: ")
+
+    #add new item to the list
+    if aerLst == "1":
+        addNewItem = input("what would you like to add to your shopping list? ")
+        
+        #same code to add a new item as initial input set from user
+        if addNewItem != "DONE":
+            shoppingLst.append(addNewItem)
+
+            if addNewItem not in itemCategoryDict:
+                itemCategory = input("No category exists for this item. Please enter the category for this item: ")
+                itemCategoryDict[addNewItem] = itemCategoryDict
+
+                if itemCategory not in categoryOrderDict:
+                    print(list(enumerate(categoryOrderList)))
+                    
+                    '''categoryOrderList.insert(int(categoryOrder), itemCategory)'''
+                    categoryOrderDict = {x: i for i, x in enumerate(categoryOrderList)}
+                    print(categoryOrderDict)
+
+            else:
+                print("your shopping list contains: ")
+                shoppingLst.sort(key=fitness)
+                for items in shoppingLst:
+                    print(items)
+    
+    #modifies an item from list 
+    #[NOTE] NOT DONE; NEED TO ACTUALLY DO SOMETHING AFTER PRINTING CURRENT LIST
+    if aerLst == "2":
+        print("enter the name of the item you would like to edit:")
+        shoppingLst.sort(key=fitness)
+        for items in shoppingLst:
+            print(items)
+
+        
+

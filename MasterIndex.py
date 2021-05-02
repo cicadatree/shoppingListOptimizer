@@ -10,7 +10,7 @@ itemCategoryDict = {
     'brocolli': 'produce (watered vegetables)',
     'garlic': 'produce (vegetables)',
     'onion': 'produce (vegetables)',
-    'potatoe': 'produce (root vegetables)',
+    'potato': 'produce (root vegetables)',
     'yam': 'produce (root vegetables)',
     'whole wheat pita': 'gluten products',
     'rye bread': 'gluten products',
