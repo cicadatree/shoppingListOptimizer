@@ -25,14 +25,15 @@ while True:
             
             # if the itemCategory the user has defined is not already defined in CategoryOrderDict, prompt the user to define the order that the new category should be placed
             if itemCategory not in categoryOrderDict:
+                categoryOrder = input("Please enter the order this item should be added in the list: ")
+                print(" ")
+                print(" ")
                 print(list(enumerate(categoryOrderList)))
-                
-                ### I NEED TO FIGURE OUT WHY THIS COMMENTED-OUT CODE CAUSES AN EXCEPTION. WHAT IS "categoryOrder"?? CODE WORKS WITHOUT THIS LINE. WHAT IS IT FOR?
-                '''categoryOrderList.insert(int(categoryOrder), itemCategory)'''
-
+                print(" ")
+                print(" ")
+                categoryOrderList.insert(int(categoryOrder), itemCategory)
                 categoryOrderDict = {x: i for i, x in enumerate(categoryOrderList)}
-                print(categoryOrderDict)
-
+                
     # if addItem input is "DONE", sort shoppingLst using the fitness function to sort the items and then print the list
     else:
         print("Your shopping list contains: ")
@@ -43,7 +44,7 @@ while True:
 
 #loop: take user user input to add/edit/remove items in/to the shopping list. [aer = add/edit/remove]
 while True:
-    aerLst = input("To add another item to the shopping list list, enter 1. To modify an item in the list, enter 2. To remove an item in the list, enter 2: ")
+    aerLst = input("To add another item to the shopping list list, enter 1. To remove an item from the list, enter 2. To finish your list, enter 3.: ")
 
     #add new item to the list
     if aerLst == "1":
@@ -58,25 +59,37 @@ while True:
                 itemCategoryDict[addNewItem] = itemCategoryDict
 
                 if itemCategory not in categoryOrderDict:
-                    print(list(enumerate(categoryOrderList)))
-                    
-                    '''categoryOrderList.insert(int(categoryOrder), itemCategory)'''
+                    categoryOrder = input("Please enter the order this item should be added in the list: ")
+                    print(" ")
+                    print(" ")
+                    for items in list(enumerate(categoryOrderList)):
+                        print(items)
+                    print(" ")
+                    print(" ")
+                    categoryOrderList.insert(int(categoryOrder), itemCategory)
                     categoryOrderDict = {x: i for i, x in enumerate(categoryOrderList)}
-                    print(categoryOrderDict)
+                    continue
 
-            else:
-                print("your shopping list contains: ")
-                shoppingLst.sort(key=fitness)
-                for items in shoppingLst:
-                    print(items)
-    
-    #modifies an item from list 
-    #[NOTE] NOT DONE; NEED TO ACTUALLY DO SOMETHING AFTER PRINTING CURRENT LIST
+    #removes an item from the shopping list
+    #[NOTE] NOT DONE; NEED TO ACTUALLY WRITE CODE THAT REMOVES THE ITEM
     if aerLst == "2":
-        print("enter the name of the item you would like to edit:")
-        shoppingLst.sort(key=fitness)
+        while True:
+            print("please enter the item you would like to remove from your shopping list")
+
+            for items in shoppingLst:
+                print(items)
+
+            removeItem = input()
+            if removeItem not in itemCategoryDict: 
+                print("that item is not in your shopping list!")
+                continue
+            else:
+                shoppingLst.remove(removeItem)
+                break
+        continue
+
+    if aerLst == "3":
+        print("This is your shopping list: ")
         for items in shoppingLst:
             print(items)
-
-        
-
+        break
