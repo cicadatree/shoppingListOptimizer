@@ -76,7 +76,6 @@ while True:
                     continue
 
     #removes an item from the shopping list
-    #[NOTE] NOT DONE; NEED TO ACTUALLY WRITE CODE THAT REMOVES THE ITEM
     if arList == "2":
         while True:
             print("please enter the item you would like to remove from your shopping list")
@@ -93,9 +92,13 @@ while True:
                 shoppingList.remove(removeItem)
                 break
         continue
+    
 
+    
     if arList == "3":
         print("This is your shopping list: ")
+
+        #[NOTE] NEED TO FIGURE OUT WHY I GET AN EXCEPTION WITH THE FITNESS FUNCITON HERE
         shoppingList.sort(key=fitness)
         for items in shoppingList:
             print(items)
