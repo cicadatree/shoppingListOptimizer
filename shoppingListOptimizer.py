@@ -1,4 +1,4 @@
-# Trello task list: https://trello.com/c/eCT1YtjH/3-create-index-dictionary-for-sobeys-bridgeport
+# Trello task list: htt`ps://trello.com/c/eCT1YtjH/3-create-index-dictionary-for-sobeys-bridgeport
 
 from MasterIndex import *
 
@@ -6,7 +6,7 @@ shoppingList = []
 
 #custom sort function using MasterIndex.py as reference
 def fitness(item):
-    return categoryOrderDict[itemCategoryDict[item]]
+    return departmentOrderDict[itemDepartmentDict[item]]
 
 #takes in user's new shopping list item input, and assigns a category & category order to it (only if the item is not already defined in MasterIndex.py)
 while True:
@@ -18,25 +18,25 @@ while True:
     if addItem != "DONE":
         shoppingList.append(addItem)
 
-        # if item is not in the itemCategoryDict (see MasterIndex.py), prompt user to define a new category for it
-        if addItem not in itemCategoryDict:
+        # if item is not in the itemDepartmentDict (see MasterIndex.py), prompt user to define a new category for it
+        if addItem not in itemDepartmentDict:
             itemCategory = input("No category exists for this item. Please enter the category for this item: ")
-            itemCategoryDict[addItem] = itemCategory  
+            itemDepartmentDict[addItem] = itemCategory  
             
-            # if the itemCategory the user has defined is not already defined in CategoryOrderDict, prompt the user to define the order that the new category should be placed
-            if itemCategory not in categoryOrderDict:
+            # if the itemCategory the user has defined is not already defined in departmentOrderDict, prompt the user to define the order that the new category should be placed
+            if itemCategory not in departmentOrderDict:
                 categoryOrder = input("Please enter the order this item should be added in the list: ")
                 print(" ")
                 print(" ")
                 
-                categoryOrderList.insert(int(categoryOrder), itemCategory)
+                bridgeportSobeysDepartmentOrder.insert(int(categoryOrder), itemCategory)
 
-                for items in list(enumerate(categoryOrderList)):
+                for items in list(enumerate(bridgeportSobeysDepartmentOrder)):
                         print(items)
                 print(" ")
                 print(" ")
                 
-                categoryOrderDict = {x: i for i, x in enumerate(categoryOrderList)}
+                departmentOrderDict = {x: i for i, x in enumerate(bridgeportSobeysDepartmentOrder)}
                 
     # if addItem input is "DONE", sort shoppingList using the fitness function to sort the items and then print the list
     else:
@@ -58,21 +58,21 @@ while True:
         if addNewItem != "DONE":
             shoppingList.append(addNewItem)
 
-            if addNewItem not in itemCategoryDict:
+            if addNewItem not in itemDepartmentDict:
                 itemCategory = input("No category exists for this item. Please enter the category for this item: ")
-                itemCategoryDict[addNewItem] = itemCategoryDict
+                itemDepartmentDict[addNewItem] = itemDepartmentDict
 
-                if itemCategory not in categoryOrderDict:
+                if itemCategory not in departmentOrderDict:
                     categoryOrder = input("Please enter the order this item should be added in the list: ")
                     print(" ")
                     print(" ")
                     
-                    categoryOrderList.insert(int(categoryOrder), itemCategory)
-                    for items in list(enumerate(categoryOrderList)):
+                    bridgeportSobeysDepartmentOrder.insert(int(categoryOrder), itemCategory)
+                    for items in list(enumerate(bridgeportSobeysDepartmentOrder)):
                         print(items)
                     print(" ")
                     print(" ")
-                    categoryOrderDict = {x: i for i, x in enumerate(categoryOrderList)}
+                    departmentOrderDict = {x: i for i, x in enumerate(bridgeportSobeysDepartmentOrder)}
                     continue
 
     #removes an item from the shopping list
@@ -85,7 +85,7 @@ while True:
 
             removeItem = input()
             
-            if removeItem not in itemCategoryDict: 
+            if removeItem not in itemDepartmentDict: 
                 print("that item is not in your shopping list!")
                 continue
             else:
