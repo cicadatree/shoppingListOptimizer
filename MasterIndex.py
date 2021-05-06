@@ -14,7 +14,7 @@ itemCategoryDict = {
     'yam': 'produce (root vegetables)',
     'whole wheat pita': 'gluten products',
     'rye bread': 'gluten products',
-    'smoked salmon': 'pseafood',
+    'smoked salmon': 'seafood',
     'live lobster': 'seafood',
     'ribeye steak': 'butchered meats',
     'pork chops': 'butchered meats',
