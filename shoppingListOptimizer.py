@@ -6,8 +6,7 @@ shoppingList = []
 
 #custom sort function using MasterIndex.py as reference
 def fitness(item):
-    return departmentOrderDict[itemDepartmentDict[item]]
-
+    return bridgeportSobeysDepartmentOrder.getOrder(itemDepartmentDict[item])
 #takes in user's new shopping list item input, and assigns a category & category order to it (only if the item is not already defined in MasterIndex.py)
 while True:
 
@@ -23,20 +22,18 @@ while True:
             itemCategory = input("No category exists for this item. Please enter the category for this item: ")
             itemDepartmentDict[addItem] = itemCategory  
             
-            # if the itemCategory the user has defined is not already defined in departmentOrderDict, prompt the user to define the order that the new category should be placed
-            if itemCategory not in departmentOrderDict:
+            # if the itemCategory the user has defined is not already defined in bridgeportSobeysDepartmentOrder, prompt the user to define the order that the new category should be placed
+            if itemCategory not in bridgeportSobeysDepartmentOrder:
                 categoryOrder = input("Please enter the order this item should be added in the list: ")
                 print(" ")
                 print(" ")
                 
                 bridgeportSobeysDepartmentOrder.insert(int(categoryOrder), itemCategory)
-
-                for items in list(enumerate(bridgeportSobeysDepartmentOrder)):
+                for items in list(enumerate(bridgeportSobeysDepartmentOrder.getItems())):
                         print(items)
                 print(" ")
                 print(" ")
-                
-                departmentOrderDict = {x: i for i, x in enumerate(bridgeportSobeysDepartmentOrder)}
+            
                 
     # if addItem input is "DONE", sort shoppingList using the fitness function to sort the items and then print the list
     else:
@@ -46,7 +43,7 @@ while True:
             print(items)
         break 
 
-#loop: take user user input to add/edit/remove items in/to the shopping list. [ar = add/remove]
+#loop: take user user input to add/remove items in/to the shopping list. [ar = add/remove]
 while True:
     arList = input("To add another item to the shopping list, enter 1. To remove an item from the list, enter 2. To finish your list, enter 3.: ")
 
@@ -62,21 +59,19 @@ while True:
                 itemCategory = input("No category exists for this item. Please enter the category for this item: ")
                 itemDepartmentDict[addNewItem] = itemDepartmentDict
 
-                if itemCategory not in departmentOrderDict:
+                if itemCategory not in bridgeportSobeysDepartmentOrder:
                     categoryOrder = input("Please enter the order this item should be added in the list: ")
                     print(" ")
                     print(" ")
                     
                     bridgeportSobeysDepartmentOrder.insert(int(categoryOrder), itemCategory)
-                    for items in list(enumerate(bridgeportSobeysDepartmentOrder)):
+                    for items in list(enumerate(bridgeportSobeysDepartmentOrder.getItems())):
                         print(items)
                     print(" ")
                     print(" ")
-                    departmentOrderDict = {x: i for i, x in enumerate(bridgeportSobeysDepartmentOrder)}
-                    continue
 
     #removes an item from the shopping list
-    if arList == "2":
+    elif arList == "2":
         while True:
             print("please enter the item you would like to remove from your shopping list")
 
@@ -85,17 +80,13 @@ while True:
 
             removeItem = input()
             
-            if removeItem not in itemDepartmentDict: 
+            if removeItem not in shoppingList: 
                 print("that item is not in your shopping list!")
-                continue
             else:
                 shoppingList.remove(removeItem)
                 break
-        continue
     
-
-    
-    if arList == "3":
+    elif arList == "3":
         print("This is your shopping list: ")
 
         #[NOTE] NEED TO FIGURE OUT WHY I GET AN EXCEPTION WITH THE FITNESS FUNCITON HERE
@@ -103,3 +94,8 @@ while True:
         for items in shoppingList:
             print(items)
         break
+
+    else:
+        print("sorry, that's not a valid input. Try again.")
+    
+

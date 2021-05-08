@@ -9,13 +9,28 @@
 #7. bakery
 #8. seafood
 #9. meat
-#10. dairy
+#10. dairy 
 #11. frozen
 #12. grocery >> grocery should really be broken out by each aisle of the store
 
-bridgeportSobeysDepartmentOrder = ["health beverages", "deli", "fruits", "watered vegetables", "vegetables", "root vegetables", "bakery", "seafood", "meat", "dairy", "frozen", "grocery"]
+#class that au
+class DepartmentOrder:
+    def __init__(self, initialList):
+        self.departmentOrder = initialList
+        self.departmentOrderDict = {x: i for i, x in enumerate(self.departmentOrder)}
 
-departmentOrderDict = {x: i for i, x in enumerate(bridgeportSobeysDepartmentOrder)}
+    def insert(self, location, item):
+        self.departmentOrder.insert(location, item)
+        self.departmentOrderDict = {x: i for i, x in enumerate(self.departmentOrder)}
+
+    def getOrder(self, department):
+        return self.departmentOrderDict[department]
+
+    def getItems(self):
+        return self.departmentOrder
+
+bridgeportSobeysList = ["health beverages", "deli", "fruits", "watered vegetables", "vegetables", "root vegetables", "bakery", "seafood", "meat", "dairy", "frozen", "grocery"]
+bridgeportSobeysDepartmentOrder = DepartmentOrder(bridgeportSobeysList)
 
 itemDepartmentDict = {
     'orange ginger shots': 'health beverages',
